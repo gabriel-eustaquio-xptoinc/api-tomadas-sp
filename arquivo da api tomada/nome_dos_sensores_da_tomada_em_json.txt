@@ -1,0 +1,161 @@
+{
+  "tomada-1-impressora-sp": {
+    "corrente": "sensor.tomada_1_impressora_sp_corrente",
+    "potencia": "sensor.tomada_1_impressora_sp_potencia",
+    "energia_total": "sensor.tomada_1_impressora_sp_energia_total",
+    "power_on_behavior": "select.tomada_1_impressora_sp_power_on_behavior",
+    "socket_1": "switch.tomada_1_impressora_sp_socket_1",
+    "tensao": "sensor.tomada_1_impressora_sp_tensao",
+    "trava": "switch.tomada_1_impressora_sp_trava_para_criancas"
+  },
+  "tomada-1-recepcao-sp": {
+    "power_on_behavior": "select.tomada_1_recepcao_sp_power_on_behavior",
+    "socket_1": "switch.tomada_1_recepcao_sp_socket_1",
+    "socket_2": "switch.tomada_1_recepcao_sp_socket_2",
+    "socket_3": "switch.tomada_1_recepcao_sp_socket_3",
+    "socket_4": "switch.tomada_1_recepcao_sp_socket_4",
+    "trava": "switch.tomada_1_recepcao_sp_trava_para_criancas"
+  },
+  "tomada-1-sala-financeiro-sp": {
+    "corrente": "sensor.tomada_1_sala_financeiro_sp_corrente",
+    "potencia": "sensor.tomada_1_sala_financeiro_sp_potencia",
+    "energia_total": "sensor.tomada_1_sala_financeiro_sp_energia_total",
+    "power_on_behavior": "select.tomada_1_sala_financeiro_sp_power_on_behavior",
+    "socket_1": "switch.tomada_1_sala_financeiro_sp_socket_1",
+    "tensao": "sensor.tomada_1_sala_financeiro_sp_tensao",
+    "trava": "switch.tomada_1_sala_financeiro_sp_trava_para_criancas"
+  },
+  "tomada-1-entrada-baia-sp": {
+    "power_on_behavior": "select.tomada_1_entrada_baia_sp_power_on_behavior",
+    "socket_1": "switch.tomada_1_entrada_baia_sp_socket_1",
+    "socket_2": "switch.tomada_1_entrada_baia_sp_socket_2",
+    "socket_3": "switch.tomada_1_entrada_baia_sp_socket_3",
+    "socket_4": "switch.tomada_1_entrada_baia_sp_socket_4",
+    "trava": "switch.tomada_1_entrada_baia_sp_trava_para_criancas"
+  },
+  "tomada-1-sala-socio-sp": {
+    "power_on_behavior": "select.tomada_1_sala_socio_sp_power_on_behavior",
+    "socket_1": "switch.tomada_1_sala_socio_sp_socket_1",
+    "socket_2": "switch.tomada_1_sala_socio_sp_socket_2",
+    "socket_3": "switch.tomada_1_sala_socio_sp_socket_3",
+    "socket_4": "switch.tomada_1_sala_socio_sp_socket_4",
+    "trava": "switch.tomada_1_sala_socio_sp_trava_para_criancas"
+  },
+  "tomada-2-entrada-baia-sp": {
+    "power_on_behavior": "select.tomada_2_entrada_baia_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_entrada_baia_sp_socket_1",
+    "socket_2": "switch.tomada_2_entrada_baia_sp_socket_2",
+    "socket_3": "switch.tomada_2_entrada_baia_sp_socket_3",
+    "socket_4": "switch.tomada_2_entrada_baia_sp_socket_4",
+    "trava": "switch.tomada_2_entrada_baia_sp_trava_para_criancas"
+  },
+  "tomada-2-impressora-sp": {
+    "corrente": "sensor.tomada_2_impressora_sp_corrente",
+    "potencia": "sensor.tomada_2_impressora_sp_potencia",
+    "energia_total": "sensor.tomada_2_impressora_sp_energia_total",
+    "power_on_behavior": "select.tomada_2_impressora_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_impressora_sp_socket_1",
+    "tensao": "sensor.tomada_2_impressora_sp_tensao",
+    "trava": "switch.tomada_2_impressora_sp_trava_para_criancas"
+  },
+  "tomada-2-recepcao-sp": {
+    "power_on_behavior": "select.tomada_2_recepcao_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_recepcao_sp_socket_1",
+    "socket_2": "switch.tomada_2_recepcao_sp_socket_2",
+    "socket_3": "switch.tomada_2_recepcao_sp_socket_3",
+    "socket_4": "switch.tomada_2_recepcao_sp_socket_4",
+    "trava": "switch.tomada_2_recepcao_sp_trava_para_criancas"
+  },
+  "tomada-2-sala-de-reuniao-2-sp": {
+    "power_on_behavior": "select.tomada_2_sala_de_reuniao_2_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_sala_de_reuniao_2_sp_socket_1",
+    "socket_2": "switch.tomada_2_sala_de_reuniao_2_sp_socket_2",
+    "socket_3": "switch.tomada_2_sala_de_reuniao_2_sp_socket_3",
+    "socket_4": "switch.tomada_2_sala_de_reuniao_2_sp_socket_4",
+    "trava": "switch.tomada_2_sala_de_reuniao_2_sp_trava_para_criancas"
+  },
+  "tomada-2-sala-financeiro-sp": {
+    "power_on_behavior": "select.tomada_2_sala_financeiro_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_sala_financeiro_sp_socket_1",
+    "socket_2": "switch.tomada_2_sala_financeiro_sp_socket_2",
+    "socket_3": "switch.tomada_2_sala_financeiro_sp_socket_3",
+    "socket_4": "switch.tomada_2_sala_financeiro_sp_socket_4",
+    "trava": "switch.tomada_2_sala_financeiro_sp_trava_para_criancas"
+  },
+  "tomada-2-tv-sala-de-reuniao-1-sp": {
+    "power_on_behavior": "select.tomada_2_tv_sala_de_reuniao_1_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_tv_sala_de_reuniao_1_sp_socket_1",
+    "socket_2": "switch.tomada_2_tv_sala_de_reuniao_1_sp_socket_2",
+    "socket_3": "switch.tomada_2_tv_sala_de_reuniao_1_sp_socket_3",
+    "socket_4": "switch.tomada_2_tv_sala_de_reuniao_1_sp_socket_4",
+    "trava": "switch.tomada_2_tv_sala_de_reuniao_1_sp_trava_para_criancas"
+  },
+  "tomada-2-sala-relacoes-institucionais-sp": {
+    "power_on_behavior": "select.tomada_2_sala_relacoes_institucionais_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_sala_relacoes_institucionais_sp_socket_1",
+    "socket_2": "switch.tomada_2_sala_relacoes_institucionais_sp_socket_2",
+    "socket_3": "switch.tomada_2_sala_relacoes_institucionais_sp_socket_3",
+    "socket_4": "switch.tomada_2_sala_relacoes_institucionais_sp_socket_4",
+    "trava": "switch.tomada_2_sala_relacoes_institucionais_sp_trava_para_criancas"
+  },
+  "tomada-2-sala-socio-sp": {
+    "power_on_behavior": "select.tomada_2_sala_socio_sp_power_on_behavior",
+    "socket_1": "switch.tomada_2_sala_socio_sp_socket_1",
+    "socket_2": "switch.tomada_2_sala_socio_sp_socket_2",
+    "socket_3": "switch.tomada_2_sala_socio_sp_socket_3",
+    "socket_4": "switch.tomada_2_sala_socio_sp_socket_4",
+    "trava": "switch.tomada_2_sala_socio_sp_trava_para_criancas"
+  },
+  "tomada-3-recepcao-sp": {
+    "power_on_behavior": "select.tomada_3_recepcao_sp_power_on_behavior",
+    "socket_1": "switch.tomada_3_recepcao_sp_socket_1",
+    "socket_2": "switch.tomada_3_recepcao_sp_socket_2",
+    "socket_3": "switch.tomada_3_recepcao_sp_socket_3",
+    "socket_4": "switch.tomada_3_recepcao_sp_socket_4",
+    "trava": "switch.tomada_3_recepcao_sp_trava_para_criancas"
+  },
+  "tomada-3-sala-socio-armario-sp": {
+    "corrente": "sensor.tomada_3_sala_socio_armario_sp_corrente",
+    "potencia": "sensor.tomada_3_sala_socio_armario_sp_potencia",
+    "energia_total": "sensor.tomada_3_sala_socio_armario_sp_energia_total",
+    "power_on_behavior": "select.tomada_3_sala_socio_armario_sp_power_on_behavior",
+    "socket_1": "switch.tomada_3_sala_socio_armario_sp_socket_1",
+    "tensao": "sensor.tomada_3_sala_socio_armario_sp_tensao",
+    "trava": "switch.tomada_3_sala_socio_armario_sp_trava_para_criancas"
+  },
+  "tomada-4-sala-anexa-socios-sp": {
+    "power_on_behavior": "select.tomada_4_sala_anexa_socios_sp_power_on_behavior",
+    "socket_1": "switch.tomada_4_sala_anexa_socios_sp_socket_1",
+    "socket_2": "switch.tomada_4_sala_anexa_socios_sp_socket_2",
+    "socket_3": "switch.tomada_4_sala_anexa_socios_sp_socket_3",
+    "socket_4": "switch.tomada_4_sala_anexa_socios_sp_socket_4",
+    "trava": "switch.tomada_4_sala_anexa_socios_sp_trava_para_criancas"
+  },
+  "tomada-baia-sp": {
+    "corrente": "sensor.tomada_baia_sp_corrente",
+    "potencia": "sensor.tomada_baia_sp_potencia",
+    "energia_total": "sensor.tomada_baia_sp_energia_total",
+    "power_on_behavior": "select.tomada_baia_sp_power_on_behavior",
+    "socket_1": "switch.tomada_baia_sp_socket_1",
+    "tensao": "sensor.tomada_baia_sp_tensao",
+    "trava": "switch.tomada_baia_sp_trava_para_criancas"
+  },
+  "tomada-sala-de-reuniao-2-sp": {
+    "corrente": "sensor.tomada_sala_de_reuniao_2_sp_corrente",
+    "potencia": "sensor.tomada_sala_de_reuniao_2_sp_potencia",
+    "energia_total": "sensor.tomada_sala_de_reuniao_2_sp_energia_total",
+    "power_on_behavior": "select.tomada_sala_de_reuniao_2_sp_power_on_behavior",
+    "socket_1": "switch.tomada_sala_de_reuniao_2_sp_socket_1",
+    "tensao": "sensor.tomada_sala_de_reuniao_2_sp_tensao",
+    "trava": "switch.tomada_sala_de_reuniao_2_sp_trava_para_criancas"
+  },
+  "tomada-sala-relacoes-institucionais-sp": {
+    "corrente": "sensor.tomada_sala_relacoes_institucionais_sp_corrente",
+    "potencia": "sensor.tomada_sala_relacoes_institucionais_sp_potencia",
+    "energia_total": "sensor.tomada_sala_relacoes_institucionais_sp_energia_total",
+    "power_on_behavior": "select.tomada_sala_relacoes_institucionais_sp_power_on_behavior",
+    "socket_1": "switch.tomada_sala_relacoes_institucionais_sp_socket_1",
+    "tensao": "sensor.tomada_sala_relacoes_institucionais_sp_tensao",
+    "trava": "switch.tomada_sala_relacoes_institucionais_sp_trava_para_criancas"
+  }
+}

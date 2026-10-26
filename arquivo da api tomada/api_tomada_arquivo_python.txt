@@ -1,0 +1,274 @@
+import hmac
+import json
+import os
+
+from urllib.request import Request
+from urllib.request import urlopen
+
+from fastapi import FastAPI
+from fastapi import Header
+from fastapi import HTTPException
+
+
+HA_URL = os.environ["HA_URL"].rstrip("/")
+HA_TOKEN = os.environ["HA_TOKEN"]
+API_KEY = os.environ["API_KEY"]
+
+
+with open("tomadas.json", encoding="utf-8") as f:
+    TOMADAS = json.load(f)
+
+
+app = FastAPI(
+    title="API Tomadas Inteligentes",
+    version="2.0"
+)
+
+
+def autorizar(chave):
+
+    if not chave:
+        raise HTTPException(
+            status_code=401,
+            detail="API Key obrigatoria"
+        )
+
+    if not hmac.compare_digest(chave, API_KEY):
+        raise HTTPException(
+            status_code=401,
+            detail="API Key invalida"
+        )
+
+
+def consultar_entidade(entity_id):
+
+    req = Request(
+        f"{HA_URL}/api/states/{entity_id}",
+        headers={
+            "Authorization": f"Bearer {HA_TOKEN}"
+        }
+    )
+
+    with urlopen(req, timeout=10) as resposta:
+        return json.load(resposta)
+
+
+def acionar_switch(entity_id, acao):
+
+    req = Request(
+        f"{HA_URL}/api/services/switch/{acao}",
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {HA_TOKEN}",
+            "Content-Type": "application/json"
+        },
+        data=json.dumps({
+            "entity_id": entity_id
+        }).encode()
+    )
+
+    with urlopen(req, timeout=10) as resposta:
+        return json.load(resposta)
+
+
+def obter_tomada(nome):
+
+    if nome not in TOMADAS:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Tomada '{nome}' nao encontrada"
+        )
+
+    return TOMADAS[nome]
+
+
+@app.get("/")
+def raiz():
+
+    return {
+        "api": "Tomadas Inteligentes",
+        "versao": "2.0"
+    }
+
+
+@app.get("/v1/tomadas")
+def listar_tomadas(
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    return {
+        "quantidade": len(TOMADAS),
+        "tomadas": sorted(TOMADAS.keys())
+    }
+
+
+@app.get("/v1/tomadas/{nome}")
+def consultar_tomada(
+        nome: str,
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    tomada = obter_tomada(nome)
+
+    retorno = {
+        "nome": nome,
+        "entidades": tomada
+    }
+
+    if "socket_1" in tomada:
+
+        retorno["estado"] = consultar_entidade(
+            tomada["socket_1"]
+        )["state"]
+
+    if "corrente" in tomada:
+
+        retorno["corrente"] = consultar_entidade(
+            tomada["corrente"]
+        )
+
+    if "potencia" in tomada:
+
+        retorno["potencia"] = consultar_entidade(
+            tomada["potencia"]
+        )
+
+    if "tensao" in tomada:
+
+        retorno["tensao"] = consultar_entidade(
+            tomada["tensao"]
+        )
+
+    if "energia_total" in tomada:
+
+        retorno["energia_total"] = consultar_entidade(
+            tomada["energia_total"]
+        )
+
+    return retorno
+
+
+@app.post("/v1/tomadas/{nome}/ligar")
+def ligar_tomada(
+        nome: str,
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    tomada = obter_tomada(nome)
+
+    if "socket_1" not in tomada:
+        raise HTTPException(
+            status_code=400,
+            detail="Tomada sem socket_1"
+        )
+
+    acionar_switch(
+        tomada["socket_1"],
+        "turn_on"
+    )
+
+    return {
+        "tomada": nome,
+        "acao": "ligar",
+        "status": "sucesso"
+    }
+
+
+@app.post("/v1/tomadas/{nome}/desligar")
+def desligar_tomada(
+        nome: str,
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    tomada = obter_tomada(nome)
+
+    if "socket_1" not in tomada:
+        raise HTTPException(
+            status_code=400,
+            detail="Tomada sem socket_1"
+        )
+
+    acionar_switch(
+        tomada["socket_1"],
+        "turn_off"
+    )
+
+    return {
+        "tomada": nome,
+        "acao": "desligar",
+        "status": "sucesso"
+    }
+
+
+@app.post("/v1/tomadas/{nome}/{socket}/ligar")
+def ligar_socket(
+        nome: str,
+        socket: str,
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    tomada = obter_tomada(nome)
+
+    if socket not in tomada:
+
+        raise HTTPException(
+            status_code=404,
+            detail=f"{socket} nao encontrado"
+        )
+
+    acionar_switch(
+        tomada[socket],
+        "turn_on"
+    )
+
+    return {
+        "tomada": nome,
+        "socket": socket,
+        "status": "ligado"
+    }
+
+
+@app.post("/v1/tomadas/{nome}/{socket}/desligar")
+def desligar_socket(
+        nome: str,
+        socket: str,
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    tomada = obter_tomada(nome)
+
+    if socket not in tomada:
+
+        raise HTTPException(
+            status_code=404,
+            detail=f"{socket} nao encontrado"
+        )
+
+    acionar_switch(
+        tomada[socket],
+        "turn_off"
+    )
+
+    return {
+        "tomada": nome,
+        "socket": socket,
+        "status": "desligado"
+    }
+
+
+@app.get("/v1/tomadas/{nome}/entidades")
+def listar_entidades(
+        nome: str,
+        x_api_key: str | None = Header(default=None)):
+
+    autorizar(x_api_key)
+
+    tomada = obter_tomada(nome)
+
+    return tomada

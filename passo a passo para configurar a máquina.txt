@@ -1,0 +1,42 @@
+Depois de iniciar a VM:
+
+Rode no terminal
+
+sudo apt update && sudo apt upgrade -y
+curl -fsSL https://get.docker.com | sh
+docker --version
+
+mkdir -p ~/homeassistant
+cd ~/homeassistant
+
+docker run -d \
+  --name homeassistant \
+  --restart=unless-stopped \
+  --network=host \
+  -v ~/homeassistant:/config \
+  -e TZ=America/Sao_Paulo \
+  ghcr.io/home-assistant/home-assistant:stable
+
+docker os
+
+Com o home assistant rodando, você já consegue acessar no navegador: http://IP_DA_VM:8123
+Exemplo: http://192.168.71.251:8123
+
+Para descobrir o ip da VM digite: ip a
+
+
+
+CADASTRE AS TOMADAS INTELIGENTES NO APLICATIVO: TUYA
+
+
+Em configurações, dispositivos e serviços. Clique em Adicionar integrações e adicione o TUYA que lá terá as tomadas.
+Colete o nome dos sensores (entidades) para que seja chamado no arquivo python -> Temos exemplos na pasta (arquivo da api tomada em nome dos sensores)
+
+É necessário: 
+1) Ter uma chave de API do TUYA 
+2) Ter Uma chave de api do Home assistant
+
+Na máquina virtual crie uma pasta chamado: api-tomadas
+Crie o arquivo api_tomada.py e cole o código que está na pasta (arquivo da api tomada chamado: api_tomada_arquivo_python)
+
+Rode os comandos que estão em: API Tomadas 2.0.docx para startar a aplicação e conseguir controlar as tomadas

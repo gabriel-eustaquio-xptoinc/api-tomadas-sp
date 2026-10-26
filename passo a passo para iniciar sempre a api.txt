@@ -1,0 +1,7 @@
+cd api-tomadas
+pm2 start iniciar_api.sh --name api-tomadas --interpreter bash
+pm2 save
+pm2 list
+pm2 startup
+execute o comando que vai aparecer do sudo ...
+pm2 save

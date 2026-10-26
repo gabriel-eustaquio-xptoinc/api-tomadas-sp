@@ -1,0 +1,10 @@
+sudo apt update
+sudo apt install dos2unix -y
+dos2unix iniciar_api.sh
+
+sed -i 's/\r$//' iniciar_api.sh
+
+chmod +x iniciar_api.sh
+./iniciar_api.sh
+
+file iniciar_api.sh
